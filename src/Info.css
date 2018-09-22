@@ -1,0 +1,9 @@
+.welcome, .replay {
+    padding-top: 10px;
+}
+
+.players-info-container .player-info {
+    float: left;
+    width: 50%;
+    text-align: center;
+}

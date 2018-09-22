@@ -1,0 +1,11 @@
+.cards-container {
+    position: absolute;
+    left: 5%;
+    width: 90%
+}
+
+.cards-container .card{
+    float: left;
+    width: 15%;
+    height: 100%;
+}

@@ -1,0 +1,8 @@
+.player-index, .score, .my-turn, .not-my-turn {
+    padding-top: 10px;
+}
+
+.my-turn {
+    font-weight: bold;
+    color: yellow;
+}
