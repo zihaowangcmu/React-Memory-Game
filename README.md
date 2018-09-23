@@ -9,52 +9,32 @@ cd <the target dir>
 npm install
 npm start
 ```
-The page will be displayed at localhost:3000.
+The page will be displayed at localhost:3000 by default.
 If this port is occupied, a remind will be displayed and check the new port.
 
-# Functions
-The following n functions are implemented.
+# Functionalities
+The following n Functionalities are implemented.
 
-## Radio Choice (Single Correct Answer)
-For questions with single correct answer, basic check/uncheck actions and answer verification are implemented.
+## Basic memory game rules
+At start of the game, all cards are back side up. The user can click on the cards to make a guess of match. If the two cards matches, the player will gain 1 point and the cards will stay front side up and unclickable. Else the cards will flipped back. Two clicks makes one turn. When all cards are matched, the game is finished.
 
-## Checkbox Choice (Multiple Correct Answers)
-For questions with multiple correct answers, basic 
-check/uncheck actions and answer verification are 
-implemented.
+## Multiplayer mode
+By default, two players are set to play this game. Each player make a guess and the one with more matches win.
 
-## Responsive Submit Button
-The button is set to be disabled if the conditions 
-satisfies one of the followings:
-1. For questions with single correct answer, the user did not make a selection.
-2. For questions with multiple correct answers, the user did not make at least two selections.
+## Random Card Back
+When a new game starts, the card back is ramdomly set. There are 5 card backs for now. If you would like to add more, simply download them to the images folder and import them in Game.js, then modify the initial state of card back nums and relative array for storing the card backs.
 
-## Responsive Options
-After an option is selected, the color of the option tag will be changed. This is part can be purely implemented by css. Basically two methods are preferred by myself:
-1. Set styles for input & input:active.
-2. Set different class names foe the selected & unselected options. Style them respectively.
+## Random Order of cards
+The order of the cards are random, so that each game is unique. 
 
-## Cutscenes
-Cutscenes are implemented by ReactCSSTransitionGroup.
+## Customize Pairs of cards
+The default pair number is 18. So there will be 36 cards display in a 6 x 6 grid. You can modify the number of pairs between 0 and 18. Notice that input area can validate your input.
 
-# Basic logic
-A js file (quizQuestion) is created to store the questions in an array. Check the format and add new questions by extending the array.
+## Replay
+To play again, just click 'replay'.
 
-The first time the page renders, the first question is displayed. The user give choices, the options and submit button displayed responsively. When submission, a function judge if its correct or not. When it's correct, the next question will be rendered.
-
-When a user reach the last one and complete it, the final page is rendered.
-
-# Some Useful (maybe) Tips
-## Known bugs and solutions
-### With IOS webview
-1. When the page is viewd in ios webview, it is quite slow to respond to the click event. The reason is not sure, probably ios webview do something when the radio/checkbox is clicked. The solution is quite straightforward: if it is slow, use sonmething quickly. So we can simply use div plus additional functions to handle the onclick event and other logic, including exclusive selections. This part is implemented but not commited here, since it is left as an exercise.
-2. Also when viewd in ios webview, user can slide the screen when the transition animation is on going, which will cause unexpected blank be displayed, though the page is properly rendered in the end. The solution is to add overflow-x:hidden to BOTH body and html.
-3. A common scene on ios is when you click, the device will have a 300ms delay due to the designation of enable zooming. The solution is to use "ontouchstart" instead of "onclick". Notice that on safari, the touch event is not simulated when you inspect. If you want to test on safari, additional works are needed.
-
-### Use ReactCSSTransitionGroup
-1. Remember to add a unique key to the elements you want to be displayed with animation. Even only one element.
-2. Set the transition time on both css files and js files.
-3. Place the "transition: xxx  yyyms;" in "active" classes.
+# Future work
+I am busy with CMU courses, especially Cloud Computing.... So I didn't make it too visually attrative. To add animation, I would consider CSSTransitionGroup. To make the UI better, there are some UI libraries or I would customize it.
 
 # At Last
 Many pieces of code and the logic is able to be optimized. I am still trying to do better. All are welcomed to communicate!
